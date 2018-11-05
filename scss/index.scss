@@ -1,0 +1,107 @@
+$primary-color: #eee;
+$color-gray: #888888;
+$color-black: #000000;
+$font-stack: "Courier New", Courier, monospace;
+
+// Override Boostrap default variables
+$body-bg: $primary-color;
+$body-color: $color-black;
+$font-family-base: $font-stack;
+
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/react-dates/lib/css/_datepicker";
+
+$margin-small: 4px;
+$margin-default: 8px;
+$margin-medium: 16px;
+
+$header-size: 64px;
+
+html, body, #app, .home-page {
+  height: 100%;
+  width: 100%;
+}
+
+.row {
+  height: 100%;
+  width: 100%;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.active .card {
+  box-shadow: $margin-small $margin-small $color-black;
+}
+
+.main-page section {
+  margin-bottom: $margin-default;
+}
+
+.sidebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* Nested Child */
+  a {
+    color: white;
+  }
+}
+
+.main-page {
+  height: 100%;
+  width: 100%;
+  padding-left: 0px;
+  padding-right: 0px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.read-more-button {
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 114, 238);
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: burlywood;
+  margin-bottom: $margin-medium;
+}
+
+
+.SingleDatePicker, .DateInput_input {
+  width: 150px;
+}
+
+button {
+  @extend .btn;
+  @extend .btn-primary;
+  background-color: #0072ee;
+}
+
+// Override Boostrap CSS
+@media (max-width: 768px) {
+  .flex-center {
+    background-color: transparent;
+  }
+
+  .col-sm-12 {
+    flex-direction: row;
+  }
+
+  .sidebar {
+    z-index: 100;
+    position: fixed;
+    height: $header-size;
+    *:not(:last-child) {
+      margin-right: $margin-medium;
+      margin-bottom: 0px;
+    }
+  }
+
+  .main-page {
+    margin-top: $header-size;
+    height: calc(100% - $header-size);
+  }
+}
